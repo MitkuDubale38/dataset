@@ -10,6 +10,7 @@ import Tab from "@material-ui/core/Tab";
 import Alert from "@material-ui/lab/Alert";
 import {
   Accordion,
+  Grid,
   Box,
   Button,
   Chip,
@@ -71,7 +72,7 @@ interface StyledTabProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   demo1: {
-    backgroundColor:"#2E3A46"
+    backgroundColor: "#2E3A46",
   },
   container: {
     display: "flex-column",
@@ -92,6 +93,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function CustomizedTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const StyleChip = withStyles({
+    root: {
+      backgroundColor: "teal",
+      color: "#ffffff",
+    },
+  })(Chip);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -105,17 +112,22 @@ export default function CustomizedTabs() {
           <AntTab label="Documentation" />
         </AntTabs>
       </div>
-      <Alert severity="warning">No Compilation issue</Alert>
+      <Alert
+        severity="warning"
+        style={{ backgroundColor: "#3D4B56", color: "#AA7626" }}
+      >
+        No Compilation issue
+      </Alert>
       <div className={classes.container}>
         <div className={classes.title}>
           <div style={{ marginRight: 10 }}>
-            <Chip label="View" color="primary" />
+            <StyleChip label="View" />
           </div>
           <Typography variant="body2">dataset_5_from_script_builder</Typography>
         </div>
         {/* <CloseOutlinedIcon /> */}
       </div>
-      <Accordion>
+      <Accordion style={{ backgroundColor: "#3D4B56", color: "#fff" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -124,7 +136,7 @@ export default function CustomizedTabs() {
           <Typography>Dependencies</Typography>
         </AccordionSummary>
       </Accordion>
-      <Accordion>
+      <Accordion style={{ backgroundColor: "#3D4B56", color: "#fff" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -133,7 +145,7 @@ export default function CustomizedTabs() {
           <Typography>Compiled</Typography>
         </AccordionSummary>
       </Accordion>
-      <Accordion>
+      <Accordion style={{ backgroundColor: "#3D4B56", color: "#fff" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3a-content"
@@ -142,12 +154,31 @@ export default function CustomizedTabs() {
           <div className={classes.container}>
             <Typography>Query</Typography>
 
-            <Box component="span" m={2}>
-              <BootstrapButton disabled style={{ marginRight: 10 }}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <BootstrapButton
+                style={{
+                  marginRight: 10,
+                  color: "#fff",
+                  backgroundColor: "gray",
+                }}
+              >
                 Execute query
               </BootstrapButton>
-              <BootstrapButton>Run this node</BootstrapButton>
-            </Box>
+              <BootstrapButton
+                style={{
+                  marginRight: 10,
+                  color: "#fff",
+                  backgroundColor: "#41a5d3",
+                }}
+              >
+                Run this node
+              </BootstrapButton>
+            </Grid>
           </div>
         </AccordionSummary>
       </Accordion>

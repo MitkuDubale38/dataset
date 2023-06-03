@@ -12,6 +12,8 @@ import FindInPageOutlinedIcon from "@material-ui/icons/FindInPageOutlined";
 import PermDataSettingOutlinedIcon from "@material-ui/icons/PermDataSettingOutlined";
 import Divider from "@material-ui/core/Divider/Divider";
 import FileTreeView from "./detailtree";
+import { withStyles } from "@material-ui/styles";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -40,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       display: "flex",
       alignItems: "center",
-      padding:theme.spacing(2)
+      padding: theme.spacing(2),
     },
     FocusedItem: {
       color: theme.palette.grey[400],
@@ -53,6 +55,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function ComplexGrid() {
   const classes = useStyles();
+  const StyleChip = withStyles({
+    root: {
+      backgroundColor: "teal",
+      color: "#ffffff",
+    },
+  })(Chip);
 
   return (
     <div className={classes.root}>
@@ -91,7 +99,7 @@ export default function ComplexGrid() {
               <div className={classes.container}>
                 <div className={classes.title}>
                   <div style={{ marginRight: 10 }}>
-                    <Chip label="View" color="primary" />
+                    <StyleChip label="View" />
                   </div>
                   <Typography variant="body2" className={classes.whiteItem}>
                     dataset_5_from_script_builder

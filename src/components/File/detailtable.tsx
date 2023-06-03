@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 function createData(field: string, type: string) {
   return { field, type };
 }
+
 const useStyles = makeStyles((theme: Theme) => ({
   table: {
     minWidth: 650,

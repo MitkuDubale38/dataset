@@ -40,7 +40,7 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
       // }
     },
     content: {
-      color: theme.palette.text.secondary,
+      color: "#ffffff",
       borderTopRightRadius: theme.spacing(2),
       borderBottomRightRadius: theme.spacing(2),
       paddingRight: theme.spacing(1),

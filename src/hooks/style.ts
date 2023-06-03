@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
 
     content: {
-      color: theme.palette.text.secondary,
+      color: "#ffffff",
       borderTopRightRadius: theme.spacing(2),
       borderBottomRightRadius: theme.spacing(2),
       paddingRight: theme.spacing(1),
@@ -84,11 +84,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "space-between",
       padding: theme.spacing(1),
-      backgroundColor:"#2E3A46"
+      backgroundColor: "#2E3A46",
     },
     title: {
       display: "flex",
       alignItems: "center",
+      marginLeft: "20px",
+      marginTop: "50px",
     },
     FocusedItem: {
       color: theme.palette.grey[400],
@@ -99,7 +101,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     expanded: {},
     selected: {},
     fileMenu: {
-      backgroundColor:"#3D4B56"
-    }
+      backgroundColor: "#3D4B56",
+    },
   })
 );

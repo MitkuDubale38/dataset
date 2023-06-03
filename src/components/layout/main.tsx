@@ -16,21 +16,31 @@ import Editor from "../File/Editor";
 import ComplexGrid from "../File/filedetail";
 import CustomizedTabs from "../File/Editordetail";
 import BootstrapButton from "../../common/button";
+import { withStyles } from "@material-ui/styles";
 function Main(props: PropTypes) {
   const FilesTitle = ["dataform", "package-lock", "package"];
-
+  const StyleChip = withStyles({
+    root: {
+      backgroundColor: "teal",
+      color: "#ffffff",
+    },
+  })(Chip);
   return (
     <Grid container xs direction="row">
-      <Grid item xs={3} sm={2}>
+      <Grid item xs={3} sm={2} spacing={5}>
         <Typography variant="h6" className={props.classes.title}>
-          Files
+          <b>Files</b>
         </Typography>
         <div className={props.classes?.fileMenu}>
           <List>
             {FilesTitle.map((row, index) => (
               <ListItem key={index}>
                 <ListItemAvatar>
-                  <Chip label="config" color="default" />
+                  <StyleChip
+                    label="config"
+                    color="default"
+                    style={{ marginRight: "10px" }}
+                  />
                 </ListItemAvatar>
                 <ListItemText primary={row} />
               </ListItem>
@@ -46,12 +56,21 @@ function Main(props: PropTypes) {
               <Typography variant="body2" className={props.classes.whiteItem}>
                 definitions/1_simple_examples/dataset_2_with_ref.sql
               </Typography>
-              <BootstrapButton size="small">Save</BootstrapButton>
+              <BootstrapButton
+                style={{
+                  marginRight: 10,
+                  color: "#fff",
+                  backgroundColor: "#41a5d3",
+                }}
+                size="small"
+              >
+                Save
+              </BootstrapButton>
             </div>
             <Divider />
             <Editor />
           </Grid>
-          <Grid item xs>
+          <Grid item xs={12} md={4} lg={4}>
             <CustomizedTabs />
           </Grid>
         </Grid>

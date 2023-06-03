@@ -53,11 +53,11 @@ const BootstrapInput = withStyles((theme: Theme) =>
 
       backgroundColor: "#24303C",
 
-      border: "1px solid #ced4da",
+      border: "1px solid #36424C",
 
       fontSize: 16,
 
-      padding: "10px 42px 8px 22px",
+      padding: "9px 60px 9px 22px",
 
       transition: theme.transitions.create(["border-color", "box-shadow"]),
 
@@ -114,19 +114,12 @@ const BootstrapInputOutlined = withStyles((theme: Theme) =>
 
     input: {
       color: "#ffffff",
-
       borderRadius: 4,
-
+      border: "none",
       position: "relative",
-
       backgroundColor: "#24303C",
-
-      border: "1px solid #ced4da",
-
       fontSize: 16,
-
       padding: "10px 42px 8px 22px",
-
       fontFamily: [
         "-apple-system",
 
@@ -155,7 +148,7 @@ const BootstrapInputOutlined = withStyles((theme: Theme) =>
     },
 
     IconComponent: {
-      fill: "#ffffff",
+      color: "#ffffff",
     },
   })
 )(InputBase);
@@ -164,7 +157,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     margin: {
       marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(1),
     },
 
     formControl: {
@@ -180,6 +173,13 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .*": {
         color: "#fff",
       },
+    },
+    dropdownIcon: {
+      color: "#fff",
+    },
+    selectBackgroundColor: {
+      //backgroundColor: "#000000",
+      // color: "#000",
     },
   })
 );
@@ -213,33 +213,39 @@ export default function Appbar(props: PropTypes) {
         <div className={props.classes.group}>
           <FormControl className={classes.margin}>
             <NativeSelect
-              style={{ border: "none" }}
+              style={{ border: "none", marginLeft: 50 }}
               IconComponent={ExpandMoreIcon}
               id="demo-customized-select-native"
               value={projectMenu}
               onChange={handleProjectMenuChange}
               input={<BootstrapInputOutlined />}
+              classes={{
+                icon: classes.dropdownIcon,
+                select: classes.selectBackgroundColor,
+              }}
             >
               <option value="Project Name">Project Name</option>
-
               <option value="Project Title">Project Title</option>
-
               <option value="Project Name">Project Name</option>
             </NativeSelect>
           </FormControl>
 
-          <FormControl className={classes.margin}>
+          <FormControl
+            className={classes.margin}
+            style={{ marginRight: "10px" }}
+          >
             <NativeSelect
               IconComponent={ExpandMoreIcon}
               id="demo-customized-select-native"
               value={enviroment}
               onChange={handleChange}
               input={<BootstrapInput />}
+              classes={{
+                icon: classes.dropdownIcon,
+              }}
             >
               <option value="Development">Development</option>
-
               <option value="Staging">Staging</option>
-
               <option value="Production">Production</option>
             </NativeSelect>
           </FormControl>
