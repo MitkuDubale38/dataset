@@ -7,7 +7,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
-import InfoIcon from "@material-ui/icons/Info";
+
 declare module "csstype" {
   interface Properties {
     "--tree-view-color"?: string;

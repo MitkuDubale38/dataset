@@ -7,7 +7,9 @@ import Folder from "@material-ui/icons/Folder";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
-import { Chip } from "@material-ui/core";
+import InfoIcon from "@material-ui/icons/Info";
+import { withStyles } from "@material-ui/styles";
+import Chip from "@material-ui/core/Chip";
 
 declare module "csstype" {
   interface Properties {
@@ -78,6 +80,7 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
 
 function StyledTreeItem(props: StyledTreeItemProps) {
   const classes = useTreeItemStyles();
+
   const {
     labelText,
     labelIcon: LabelIcon,
@@ -116,7 +119,12 @@ function StyledTreeItem(props: StyledTreeItemProps) {
     />
   );
 }
-
+const StyleChip = withStyles({
+  root: {
+    backgroundColor: (props) => props.iconBgColor,
+    color: "#ffffff",
+  },
+})(Chip);
 export default function FileTreeView() {
   const Files = [
     {
@@ -125,22 +133,49 @@ export default function FileTreeView() {
         {
           Name: "1_Simple_examples",
           value: [
-            { label: "SQL", Name: "dataset_1" },
-            { label: "SQL", Name: "dataset_2_with_ref" },
+            {
+              label: "SQL",
+              Name: "dataset_1",
+
+              iconBgColor: "#8c9f69",
+            },
+            {
+              label: "SQL",
+              Name: "dataset_2_with_ref",
+
+              iconBgColor: "#8c9f69",
+            },
           ],
         },
         {
           Name: "2_advanced_examples",
           value: [
-            { label: "SQL", Name: "dataset_3_increase" },
-            { label: "JS", Name: "dataset_4_increase" },
+            {
+              label: "SQL",
+              Name: "dataset_3_increase",
+
+              iconBgColor: "#8c9f69",
+            },
+            {
+              label: "JS",
+              Name: "dataset_4_increase",
+              iconBgColor: "#f4d074",
+            },
           ],
         },
         {
           Name: "3_Operations_and_",
           value: [
-            { label: "ops", Name: "grant_access" },
-            { label: "assert", Name: "simple_assertion" },
+            {
+              label: "ops",
+              Name: "grant_access",
+              iconBgColor: "#578c98",
+            },
+            {
+              label: "assert",
+              Name: "simple_assertion",
+              iconBgColor: "#9e7f71",
+            },
           ],
         },
       ],
@@ -180,7 +215,15 @@ export default function FileTreeView() {
                           key={index_three}
                           nodeId={(index++).toString()}
                           labelText={item_value.Name}
-                          labelIcon={Folder}
+                          labelIcon={() => {
+                            return (
+                              <StyleChip
+                                iconBgColor={item_value.iconBgColor}
+                                label={item_value.label}
+                                style={{ marginRight: "10px" }}
+                              ></StyleChip>
+                            );
+                          }}
                           color="#1a73e8"
                           bgColor="#e8f0fe"
                         />
